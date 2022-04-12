@@ -1,0 +1,64 @@
+### Получить всех людей
+
+GET http://localhost:8080/humans
+
+### Получить человека по id
+
+GET http://localhost:8080/humans/1
+
+### Добавить человека
+
+POST http://localhost:8080/humans
+Content-Type: application/json
+
+{
+"name" : "Ernest",
+"login" : "ern1999@bk.ru"
+}
+
+### Получить все события
+
+GET http://localhost:8080/events
+
+### Добавить событие
+
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "name" : "Meeting 6",
+  "start" : "10:30:00",
+  "finish" : "15:00:00"
+}
+
+### Добавить событие в расписание человека
+
+POST http://localhost:8080/events/human/8
+Content-Type: application/json
+
+{
+  "name" : "Niaz"
+}
+
+
+### Добавить событие в расписание людей
+
+POST http://localhost:8080/events/humans/8
+Content-Type: application/json
+
+[
+    {"name" : "Dima"},
+    {"name" : "Ernest"},
+    {"name" : "Rafael"}
+]
+
+### Получить общие свободные временные промежутки для нескольких людей
+
+POST http://localhost:8080/humans/common-gaps
+Content-Type: application/json
+
+[
+  "Ilya",
+  "Rafael",
+  "Ernest"
+]
